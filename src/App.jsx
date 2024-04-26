@@ -11,7 +11,7 @@ import Home from "./pages/Home"
 import Post from "./pages/Post"
 import Single from "./pages/Single"
 import Navbar from "./components/Navbar"
-import Footer from "./Components/Footer";
+import Footer from "./components/Footer";
 import "./style.scss"
 
 //created function of layout to create the element efficiently 

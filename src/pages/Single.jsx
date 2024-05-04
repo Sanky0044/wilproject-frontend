@@ -9,6 +9,9 @@ import { AuthContext } from "../Context/authContext.jsx";
 import { useContext } from "react";
 import DOMPurify from "dompurify";
 import { Image } from "cloudinary-react";
+import {AdvancedImage} from '@cloudinary/react';
+import { CloudinaryImage } from '@cloudinary/url-gen';
+import { fill } from '@cloudinary/url-gen/actions/resize';
 
 const Single = () => {
 
@@ -52,7 +55,7 @@ const Single = () => {
   return (
     <div className='single'>
       <div className="content">
-      //<img src={`../upload/${post?.img}`} alt="" />
+      {/* <img src={`https://res.cloudinary.com/dsbbepeox/image/upload/v1714613718/${post?.img}`} alt="" />
       <Image 
                 cloudName= "dsbbepeox"
                 publicId={post.img}
@@ -60,6 +63,11 @@ const Single = () => {
                 height="200"
                 crop="fill"
                 alt=""
+                /> */}
+                <AdvancedImage
+                cldImg = {
+                  new CloudinaryImage(post.img, { cloudName: 'dsbbepeox' }).resize(fill().width(300).height(200)) // Adjust width and height as needed
+                }
                 />
         <div className="user">
           {post.userImg && <img

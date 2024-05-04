@@ -4,6 +4,10 @@ import { useEffect } from "react";
 import axios from "axios";
 import { Link, useLocation } from "react-router-dom";
 import { Image } from 'cloudinary-react';
+import {AdvancedImage} from '@cloudinary/react';
+import { CloudinaryImage } from '@cloudinary/url-gen';
+import { fill } from '@cloudinary/url-gen/actions/resize';
+
 const Home = () => {
   const [posts, setPosts] = useState([]);
 
@@ -61,14 +65,10 @@ const Home = () => {
         {posts.map((post) => (
           <div className="post" key={post.id}>
             <div className="img">
-              //<img src={`../upload/${post.img}`} alt="" />
-                <Image 
-                cloudName= "dsbbepeox"
-                publicId={post.img}
-                width="300"
-                height="200"
-                crop="fill"
-                alt=""
+                <AdvancedImage
+                cldImg = {
+                  new CloudinaryImage(post.img, { cloudName: 'dsbbepeox' }).resize(fill().width(300).height(200)) // Adjust width and height as needed
+                }
                 />
             </div>
             <div className="content">

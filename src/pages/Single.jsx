@@ -8,6 +8,7 @@ import moment from "moment";
 import { AuthContext } from "../Context/authContext.jsx";
 import { useContext } from "react";
 import DOMPurify from "dompurify";
+import { Image } from "cloudinary-react";
 
 const Single = () => {
 
@@ -51,7 +52,15 @@ const Single = () => {
   return (
     <div className='single'>
       <div className="content">
-      <img src={`../upload/${post?.img}`} alt="" />
+      //<img src={`../upload/${post?.img}`} alt="" />
+      <Image 
+                cloudName= "dsbbepeox"
+                publicId={post.img}
+                width="300"
+                height="200"
+                crop="fill"
+                alt=""
+                />
         <div className="user">
           {post.userImg && <img
             src={post.userImg}

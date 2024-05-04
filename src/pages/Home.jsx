@@ -67,7 +67,7 @@ const Home = () => {
             <div className="img">
                 <AdvancedImage
                 cldImg = {
-                  new CloudinaryImage(post.img, { cloudName: 'dsbbepeox' }).resize(fill().width(300).height(800)) // Adjust width and height as needed
+                  new CloudinaryImage(post.img, { cloudName: 'dsbbepeox' }).resize(fill().width(300).height(400)) // Adjust width and height as needed
                 }
                 />
             </div>
